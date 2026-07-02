@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Menu · Sabores com História</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F1E4; --cream2:#EFE7D3; --ink:#303028; --charcoal:#232321;
+    --green:#6C8B71; --green-d:#4E6B54; --gold:#C99A3B; --stone:#9A8F7D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--cream);color:var(--ink);font-family:"Poppins",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 60px}
+
+  header{text-align:center;padding:48px 20px 28px}
+  header .mark{font-family:"Lora",serif;font-weight:700;font-size:38px;color:var(--charcoal);letter-spacing:.5px}
+  header .sub{font-size:13px;letter-spacing:4px;color:var(--gold);font-weight:600;margin-top:6px;text-transform:uppercase}
+  header .tag{font-size:14px;color:var(--stone);margin-top:14px}
+  .rule{width:70px;height:3px;background:var(--gold);margin:22px auto 0;border-radius:2px}
+
+  .cols{display:grid;grid-template-columns:1fr;gap:0}
+  @media(min-width:760px){.cols{grid-template-columns:1fr 1fr;gap:0 48px}}
+
+  .sec{margin-top:34px;break-inside:avoid}
+  .sec h2{font-family:"Lora",serif;font-weight:700;font-size:24px;color:var(--charcoal);display:flex;align-items:center;gap:12px}
+  .sec h2::after{content:"";flex:1;height:1px;background:var(--cream2)}
+  .sec .desc{font-size:12.5px;color:var(--stone);margin-top:4px;font-style:italic}
+
+  .item{display:grid;grid-template-columns:1fr 80px;column-gap:16px;align-items:baseline;margin-top:14px}
+  .item .nm{font-weight:500;color:var(--charcoal)}
+  .item .dots{display:none}
+  .item .pr{font-weight:600;color:var(--green-d);text-align:right;white-space:nowrap}
+  .item .ing{grid-column:1 / -1;font-size:12.5px;color:var(--stone);margin-top:3px}
+  .vegan{display:inline-block;font-size:10px;font-weight:600;color:#fff;background:var(--green);border-radius:20px;padding:2px 9px;letter-spacing:1px;margin-left:6px;vertical-align:middle}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chips span{background:var(--cream2);color:var(--charcoal);font-size:13px;padding:7px 14px;border-radius:20px}
+
+  .note{background:#fff;border:1px solid var(--cream2);border-radius:14px;padding:16px 18px;margin-top:16px;font-size:13px;color:var(--ink)}
+  .note b{color:var(--green-d)}
+
+  .brunch{background:#fff;border:1px solid var(--cream2);border-radius:14px;padding:18px;margin-top:14px}
+  .brunch .head{display:flex;justify-content:space-between;align-items:baseline}
+  .brunch .head .t{font-family:"Lora",serif;font-weight:700;font-size:19px;color:var(--charcoal)}
+  .brunch .head .p{font-weight:600;color:var(--green-d)}
+  .brunch .body{font-size:13px;color:var(--ink);margin-top:6px}
+  .reserva{display:inline-block;background:var(--green);color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;padding:6px 14px;border-radius:20px;margin-top:12px}
+
+  footer{text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid var(--cream2);font-size:12px;color:var(--stone)}
+  footer a{color:var(--green-d);text-decoration:none;font-weight:600}
+  .upd{font-size:11px;color:#b9af9c;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="mark">Sabores com História</div>
+    <div class="sub">Casa de Chá · Pastelaria Artesanal</div>
+    <div class="tag">Tudo feito na hora · Quinta do Conde, Sesimbra</div>
+    <div class="rule"></div>
+  </header>
+
+  <!-- ============ COMIDA ============ -->
+  <div class="cols">
+    <div>
+      <div class="sec">
+        <h2>Torradas</h2>
+        <div class="item"><span class="nm">Tradicional</span><span class="dots"></span><span class="pr">2,10 €</span></div>
+        <div class="item"><span class="nm">Azeite</span><span class="dots"></span><span class="pr">1,70 €</span></div>
+        <div class="item"><span class="nm">Manteiga de Alho</span><span class="dots"></span><span class="pr">2,50 €</span></div>
+        <div class="item"><span class="nm">Manteiga de Abacate e Ovo</span><span class="dots"></span><span class="pr">7,50 €</span></div>
+        <div class="item"><span class="nm">Queijo Brie, Nozes e Mel</span><span class="dots"></span><span class="pr">5,50 €</span></div>
+        <div class="item"><span class="nm">Manteiga de Amendoim, Banana e Sementes de Chia</span><span class="dots"></span><span class="pr">6,90 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Tostas</h2>
+        <div class="item"><span class="nm">Mista</span><span class="dots"></span><span class="pr">5,90 €</span></div>
+        <div class="item"><span class="nm">Presunto</span><span class="dots"></span><span class="pr">6,90 €</span><span class="ing">Queijo brie · presunto · rúcula</span></div>
+        <div class="item"><span class="nm">Cheddar</span><span class="dots"></span><span class="pr">7,50 €</span><span class="ing">Queijo cheddar · bacon · omelete · molho barbecue</span></div>
+        <div class="item"><span class="nm">Alheira</span><span class="dots"></span><span class="pr">8,60 €</span><span class="ing">Queijo de cabra · alheira · rúcula</span></div>
+        <div class="item"><span class="nm">Frango</span><span class="dots"></span><span class="pr">6,90 €</span><span class="ing">Queijo gouda · maionese · frango · cogumelos</span></div>
+        <div class="item"><span class="nm">Delícias do Mar</span><span class="dots"></span><span class="pr">6,90 €</span><span class="ing">Queijo gouda · delícias do mar · molho cocktail</span></div>
+        <div class="item"><span class="nm">Atum</span><span class="dots"></span><span class="pr">6,90 €</span><span class="ing">Queijo gouda · maionese · atum · ovo cozido · azeitonas</span></div>
+        <div class="item"><span class="nm">Tosta d'Horta <span class="vegan">VEGAN</span></span><span class="dots"></span><span class="pr">7,50 €</span><span class="ing">Alface · tomate · abacate · azeite</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Crepes Doces &amp; Panquecas</h2>
+        <div class="item"><span class="nm">Crepe Simples</span><span class="dots"></span><span class="pr">4,00 €</span><span class="ing">Topping +1,50 €</span></div>
+        <div class="item"><span class="nm">Panquecas de Aveia</span><span class="dots"></span><span class="pr">8,00 €</span></div>
+        <div class="item"><span class="nm">Panquecas Americanas</span><span class="dots"></span><span class="pr">6,00 €</span></div>
+        <div class="item"><span class="nm">Panquecas Red Velvet</span><span class="dots"></span><span class="pr">10,00 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Crepes Salgados</h2>
+        <div class="sec" style="margin-top:2px"><div class="desc">Guarnição: batata frita (doce ou tradicional) e salada mista</div></div>
+        <div class="item"><span class="nm">Crepe de Frango</span><span class="dots"></span><span class="pr">7,50 €</span><span class="ing">Frango · cogumelos · queijo de cabra</span></div>
+        <div class="item"><span class="nm">Crepe de Presunto</span><span class="dots"></span><span class="pr">6,50 €</span><span class="ing">Presunto · queijo brie</span></div>
+        <div class="item"><span class="nm">Crepe de Atum</span><span class="dots"></span><span class="pr">6,50 €</span><span class="ing">Atum · cebola · queijo mozzarella</span></div>
+        <div class="item"><span class="nm">Crepe de Salmão Fumado</span><span class="dots"></span><span class="pr">9,50 €</span><span class="ing">Salmão fumado · queijo feta</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Ovos</h2>
+        <div class="item"><span class="nm">Omelete</span><span class="dots"></span><span class="pr">7,50 €</span></div>
+        <div class="item"><span class="nm">Ovos Mexidos</span><span class="dots"></span><span class="pr">3,50 €</span></div>
+        <div class="item"><span class="nm">Ovos Mexidos c/ Bacon</span><span class="dots"></span><span class="pr">4,50 €</span></div>
+        <div class="item"><span class="nm">Ovos Mexidos c/ Alheira</span><span class="dots"></span><span class="pr">5,50 €</span></div>
+        <div class="item"><span class="nm">Ovos Rotos</span><span class="dots"></span><span class="pr">7,00 €</span></div>
+        <div class="item"><span class="nm">Ovos Benedict</span><span class="dots"></span><span class="pr">10,50 €</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec">
+        <h2>Saladas</h2>
+        <div class="item"><span class="nm">Frango</span><span class="dots"></span><span class="pr">8,80 €</span><span class="ing">Massa integral · frango · alface · tomate cherry · cogumelos · nozes · abacaxi</span></div>
+        <div class="item"><span class="nm">Atum</span><span class="dots"></span><span class="pr">8,80 €</span><span class="ing">Massa integral · atum · salada · tomate cherry · azeitonas · ovo</span></div>
+        <div class="item"><span class="nm">Salmão Fumado</span><span class="dots"></span><span class="pr">9,90 €</span><span class="ing">Massa integral · salmão fumado · alface · tomate cherry · frutos secos</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Hambúrguer</h2>
+        <div class="sec" style="margin-top:2px"><div class="desc">Guarnição: batata frita (doce ou tradicional)</div></div>
+        <div class="item"><span class="nm">Clássico</span><span class="dots"></span><span class="pr">6,00 €</span><span class="ing">Queijo gouda · rúcula</span></div>
+        <div class="item"><span class="nm">Rústico</span><span class="dots"></span><span class="pr">7,50 €</span><span class="ing">Queijo gouda · rúcula · cebola caramelizada · pepino</span></div>
+        <div class="item"><span class="nm">Americano</span><span class="dots"></span><span class="pr">9,50 €</span><span class="ing">Queijo cheddar · alface · tomate · bacon · ovo estrelado · cebola caramelizada</span></div>
+        <div class="item"><span class="nm">Português</span><span class="dots"></span><span class="pr">8,50 €</span><span class="ing">Queijo de cabra · rúcula · presunto · mel · nozes</span></div>
+        <div class="item"><span class="nm">Batata c/ Cheddar e Bacon</span><span class="dots"></span><span class="pr">5,50 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Brunch</h2>
+        <div class="brunch">
+          <div class="head"><span class="t">Português</span><span class="p">25,00 €</span></div>
+          <div class="body">Pão diverso · queijo fresco, queijo seco, queijo gouda, fiambre, presunto · chá ou café com leite · pastel de nata e miniaturas secas · ovos mexidos com alheira, bacon, feijão salteado com tomate · salgados, compota, mel e manteiga</div>
+        </div>
+        <div class="brunch">
+          <div class="head"><span class="t">Saudável</span><span class="p">35,00 €</span></div>
+          <div class="body">Torrada com manteiga de abacate e ovo · sumo natural · fruta diversa · taça de granola com iogurte natural · mel · panquecas de aveia</div>
+        </div>
+        <div class="brunch" style="background:var(--cream2)">
+          <div class="head"><span class="t" style="font-size:15px">Extra · Taça de Granola</span><span class="p">6,50 €</span></div>
+        </div>
+        <span class="reserva">BRUNCH SÓ POR RESERVA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule" style="margin:46px auto 0"></div>
+
+  <!-- ============ BEBIDAS ============ -->
+  <div class="cols">
+    <div>
+      <div class="sec">
+        <h2>Sumos Naturais</h2>
+        <div class="desc">Trabalhamos com frutas e legumes frescos e da época</div>
+        <div class="item"><span class="nm">Single · 1 fruta</span><span class="dots"></span><span class="pr">2,80 €</span></div>
+        <div class="item"><span class="nm">Mix · 2 frutas e/ou vegetais</span><span class="dots"></span><span class="pr">3,80 €</span></div>
+        <div class="item"><span class="nm">Super Mix · 3 frutas e/ou vegetais</span><span class="dots"></span><span class="pr">4,80 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Batidos</h2>
+        <div class="desc">Trabalhamos com frutas e legumes frescos e da época</div>
+        <div class="item"><span class="nm">Single · 1 fruta</span><span class="dots"></span><span class="pr">3,80 €</span></div>
+        <div class="item"><span class="nm">Mix · 2 frutas e/ou vegetais</span><span class="dots"></span><span class="pr">4,80 €</span></div>
+        <div class="item"><span class="nm">Super Mix · 3 frutas e/ou vegetais</span><span class="dots"></span><span class="pr">5,80 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Cafés Especiais</h2>
+        <div class="item"><span class="nm">Cappuccino</span><span class="dots"></span><span class="pr">2,50 €</span><span class="ing">Café · espuma de leite</span></div>
+        <div class="item"><span class="nm">Shakeratto</span><span class="dots"></span><span class="pr">2,50 €</span><span class="ing">Café · gelo</span></div>
+        <div class="item"><span class="nm">Real</span><span class="dots"></span><span class="pr">2,00 €</span><span class="ing">Café · mel</span></div>
+        <div class="item"><span class="nm">Mocha</span><span class="dots"></span><span class="pr">4,00 €</span><span class="ing">Café · chocolate quente · chantilly</span></div>
+        <div class="item"><span class="nm">Affogato</span><span class="dots"></span><span class="pr">3,00 €</span><span class="ing">Café · bola de gelado de baunilha</span></div>
+        <div class="item"><span class="nm">Panna</span><span class="dots"></span><span class="pr">3,50 €</span><span class="ing">Café · chantilly · canela em pó</span></div>
+        <div class="item"><span class="nm">Bombom</span><span class="dots"></span><span class="pr">3,50 €</span><span class="ing">Café · chantilly · leite condensado</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Quentes s/ Café</h2>
+        <div class="item"><span class="nm">Chocolate Quente</span><span class="dots"></span><span class="pr">3,00 €</span><span class="ing">Clássico · caramelo · negro · avelã · branco</span></div>
+        <div class="item"><span class="nm">Leite Dourado</span><span class="dots"></span><span class="pr">4,00 €</span><span class="ing">Bebida vegetal · pimenta · cúrcuma em pó</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec">
+        <h2>Refrigerantes / Néctares</h2>
+        <div class="item"><span class="nm">Coca-Cola</span><span class="dots"></span><span class="pr">1,90 €</span></div>
+        <div class="item"><span class="nm">Sumol</span><span class="dots"></span><span class="pr">1,90 €</span></div>
+        <div class="item"><span class="nm">Ice Tea</span><span class="dots"></span><span class="pr">1,90 €</span></div>
+        <div class="item"><span class="nm">Compal</span><span class="dots"></span><span class="pr">1,40 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Outras</h2>
+        <div class="item"><span class="nm">Média Sagres</span><span class="dots"></span><span class="pr">1,30 €</span></div>
+        <div class="item"><span class="nm">Cidra</span><span class="dots"></span><span class="pr">2,10 €</span></div>
+        <div class="item"><span class="nm">Moscatel</span><span class="dots"></span><span class="pr">2,00 €</span></div>
+        <div class="item"><span class="nm">Porto</span><span class="dots"></span><span class="pr">2,00 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Águas</h2>
+        <div class="item"><span class="nm">Natural 0,5 l</span><span class="dots"></span><span class="pr">1,20 €</span></div>
+        <div class="item"><span class="nm">Pedras</span><span class="dots"></span><span class="pr">1,40 €</span></div>
+        <div class="item"><span class="nm">Gaseificada</span><span class="dots"></span><span class="pr">1,50 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2>Chás</h2>
+        <div class="chips">
+          <span>Verde</span><span>Preto</span><span>Branco</span><span>Camomila</span><span>Cidreira</span><span>Hibisco</span>
+          <span>Mate</span><span>Hortelã</span><span>Limão</span><span>Erva-doce</span><span>Alecrim</span><span>Canela</span>
+        </div>
+        <div class="note">
+          Encontra uma variedade ainda maior de sabores e aromas no nosso expositor.
+          <b>Estamos à disposição para ajudar a escolher o chá perfeito para cada ocasião.</b>
+          <br><br>
+          Infusões para apreciar com calma, parte da nossa tradição de casa de chá.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:34px">
+    <b>Alergénios:</b> se é alérgico ou intolerante a algum alimento e tem dúvidas sobre o que foi usado na preparação, peça informações a um dos nossos colaboradores.
+  </div>
+
+  <footer>
+    Sabores com História · Casa de chá e pastelaria<br>
+    Rua Machado dos Santos, lote 1010 / Av. Primeiro de Maio · 2975-328 Quinta do Conde, Sesimbra<br>
+    Reservas e contacto: <a href="https://wa.me/351928110255">WhatsApp 928 110 255</a> ·
+    <a href="https://maps.app.goo.gl/uqTj7Dska6PAgsra8">Como chegar</a>
+    <div class="upd">Menu atualizado em junho de 2026 · preços sujeitos a alteração</div>
+  </footer>
+
+</div>
+</body>
+</html>
