@@ -1,4 +1,4 @@
-Page_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_Down<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8"/>
@@ -43,6 +43,7 @@ Page_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_Dow
   .hours-list .day{color:var(--ink);font-weight:500}
   .hours-list .time{color:var(--green-d);font-weight:600}
   .hours-note{margin-top:14px;font-size:13px;color:var(--stone)}
+  .hours-note a{color:var(--green-d);font-weight:600}
 
   .menu-btn{display:inline-flex;align-items:center;gap:10px;margin-top:46px;padding:20px 48px;border-radius:50px;background:var(--green);color:#fff;font-family:"Lora",serif;font-weight:700;font-size:20px;text-decoration:none;box-shadow:0 10px 26px rgba(76,107,84,0.28);transition:transform .18s ease, box-shadow .18s ease}
   .menu-btn:hover{background:var(--green-d);transform:translateY(-2px);box-shadow:0 14px 32px rgba(76,107,84,0.34)}
@@ -108,7 +109,7 @@ Page_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_DownPage_Dow
       <li><span class="day">Sábado</span><span class="time">08:00 – 19:00</span></li>
       <li><span class="day">Domingo</span><span class="time">08:00 – 19:00</span></li>
     </ul>
-    <p class="hours-note" id="tHoursNote">Em alguns dias poderemos ter de encerrar mais cedo por algum motivo alheio. Se quiser confirmar, basta mandar mensagem via WhatsApp.</p>
+    <p class="hours-note" id="tHoursNote">Embora façamos o possível por cumprir sempre o nosso horário, poderão ocorrer encerramentos antecipados por motivos imprevistos. Se tiver alguma dúvida, envie-nos uma mensagem pelo <a href="https://wa.me/351928110255" target="_blank" rel="noopener">WhatsApp</a>.</p>
   </div>
 
   <a class="menu-btn" href="menu.html" id="tMenuBtn">
@@ -141,7 +142,7 @@ const I18N = {
     hoursEyebrow: "Horário",
     days: ["Segunda","Terça","Quarta","Quinta","Sexta","Sábado","Domingo"],
     times: ["08:00 – 19:00","08:00 – 19:00","Encerrado","08:00 – 19:00","08:00 – 19:00","08:00 – 19:00","08:00 – 19:00"],
-    hoursNote: "Em alguns dias poderemos ter de encerrar mais cedo por algum motivo alheio. Se quiser confirmar, basta mandar mensagem via WhatsApp.",
+    hoursNote: "Embora façamos o possível por cumprir sempre o nosso horário, poderão ocorrer encerramentos antecipados por motivos imprevistos. Se tiver alguma dúvida, envie-nos uma mensagem pelo <a href=\"https://wa.me/351928110255\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.",
     menuBtn: "Ver o Menu"
   },
   es: {
@@ -158,7 +159,7 @@ const I18N = {
     hoursEyebrow: "Horario",
     days: ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"],
     times: ["08:00 – 19:00","08:00 – 19:00","Cerrado","08:00 – 19:00","08:00 – 19:00","08:00 – 19:00","08:00 – 19:00"],
-    hoursNote: "Algunos días podríamos vernos obligados a cerrar antes por motivos ajenos a nosotros. Si quieres confirmar, escríbenos por WhatsApp.",
+    hoursNote: "Aunque hacemos todo lo posible por cumplir siempre nuestro horario, pueden producirse cierres anticipados por motivos imprevistos. Si tiene alguna duda, envíenos un mensaje por <a href=\"https://wa.me/351928110255\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.",
     menuBtn: "Ver el Menú"
   },
   en: {
@@ -175,7 +176,7 @@ const I18N = {
     hoursEyebrow: "Opening Hours",
     days: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
     times: ["08:00 – 19:00","08:00 – 19:00","Closed","08:00 – 19:00","08:00 – 19:00","08:00 – 19:00","08:00 – 19:00"],
-    hoursNote: "On some days we may need to close earlier due to reasons beyond our control. If you'd like to confirm, just send us a message on WhatsApp.",
+    hoursNote: "While we always try to keep to our opening hours, early closures may occasionally happen for unforeseen reasons. If you have any questions, please send us a message on <a href=\"https://wa.me/351928110255\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.",
     menuBtn: "View the Menu"
   },
   fr: {
@@ -192,7 +193,7 @@ const I18N = {
     hoursEyebrow: "Horaires",
     days: ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],
     times: ["08:00 – 19:00","08:00 – 19:00","Fermé","08:00 – 19:00","08:00 – 19:00","08:00 – 19:00","08:00 – 19:00"],
-    hoursNote: "Certains jours, nous pouvons être amenés à fermer plus tôt pour des raisons indépendantes de notre volonté. Pour confirmer, envoyez-nous simplement un message sur WhatsApp.",
+    hoursNote: "Bien que nous fassions tout notre possible pour respecter nos horaires, des fermetures anticipées peuvent survenir pour des raisons imprévues. Pour toute question, envoyez-nous un message sur <a href=\"https://wa.me/351928110255\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.",
     menuBtn: "Voir le Menu"
   }
 };
@@ -210,7 +211,7 @@ function applyLang(lang){
     li.querySelector('.day').textContent = t.days[i];
     li.querySelector('.time').textContent = t.times[i];
   });
-  document.getElementById('tHoursNote').textContent = t.hoursNote;
+  document.getElementById('tHoursNote').innerHTML = t.hoursNote;
   document.querySelector('#tMenuBtn span').textContent = t.menuBtn;
   document.getElementById('tMenuBtn').setAttribute('href', 'menu.html?lang=' + lang);
 
