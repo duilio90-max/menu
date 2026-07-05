@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Menu · Sabores com História</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F1E4; --cream2:#EFE7D3; --ink:#303028; --charcoal:#232321;
+    --green:#6C8B71; --green-d:#4E6B54; --gold:#C99A3B; --stone:#9A8F7D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--cream);color:var(--ink);font-family:"Poppins",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 60px}
+
+  header{text-align:center;padding:48px 20px 28px}
+  header .mark{font-family:"Lora",serif;font-weight:700;font-size:38px;color:var(--charcoal);letter-spacing:.5px}
+  header .sub{font-size:13px;letter-spacing:4px;color:var(--gold);font-weight:600;margin-top:6px;text-transform:uppercase}
+  header .tag{font-size:14px;color:var(--stone);margin-top:14px}
+  .rule{width:70px;height:3px;background:var(--gold);margin:22px auto 0;border-radius:2px}
+
+  .cols{display:grid;grid-template-columns:1fr;gap:0}
+  @media(min-width:760px){.cols{grid-template-columns:1fr 1fr;gap:0 48px}}
+
+  .sec{margin-top:34px;break-inside:avoid}
+  .sec h2{font-family:"Lora",serif;font-weight:700;font-size:24px;color:var(--charcoal);display:flex;align-items:center;gap:12px}
+  .sec h2::after{content:"";flex:1;height:1px;background:var(--cream2)}
+  .sec .desc{font-size:12.5px;color:var(--stone);margin-top:4px;font-style:italic}
+
+  .item{display:grid;grid-template-columns:1fr 80px;column-gap:16px;align-items:baseline;margin-top:14px}
+  .item .nm{font-weight:500;color:var(--charcoal)}
+  .item .dots{display:none}
+  .item .pr{font-weight:600;color:var(--green-d);text-align:right;white-space:nowrap}
+  .item .ing{grid-column:1 / -1;font-size:12.5px;color:var(--stone);margin-top:3px}
+  .vegan{display:inline-block;font-size:10px;font-weight:600;color:#fff;background:var(--green);border-radius:20px;padding:2px 9px;letter-spacing:1px;margin-left:6px;vertical-align:middle}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chips span{background:var(--cream2);color:var(--charcoal);font-size:13px;padding:7px 14px;border-radius:20px}
+
+  .note{background:#fff;border:1px solid var(--cream2);border-radius:14px;padding:16px 18px;margin-top:16px;font-size:13px;color:var(--ink)}
+  .note b{color:var(--green-d)}
+
+  .brunch{background:#fff;border:1px solid var(--cream2);border-radius:14px;padding:18px;margin-top:14px}
+  .brunch .head{display:flex;justify-content:space-between;align-items:baseline}
+  .brunch .head .t{font-family:"Lora",serif;font-weight:700;font-size:19px;color:var(--charcoal)}
+  .brunch .head .p{font-weight:600;color:var(--green-d)}
+  .brunch .body{font-size:13px;color:var(--ink);margin-top:6px}
+  .reserva{display:inline-block;background:var(--green);color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;padding:6px 14px;border-radius:20px;margin-top:12px}
+
+  footer{text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid var(--cream2);font-size:12px;color:var(--stone)}
+  footer a{color:var(--green-d);text-decoration:none;font-weight:600}
+  .upd{font-size:11px;color:#b9af9c;margin-top:8px}
+
+  .langbar{position:fixed;top:16px;right:16px;z-index:100;display:flex;gap:6px;background:rgba(255,255,255,0.9);backdrop-filter:blur(4px);padding:6px;border-radius:30px;box-shadow:0 4px 14px rgba(35,35,33,0.1)}
+  .langbar button{width:30px;height:30px;padding:0;border-radius:50%;border:2px solid transparent;background:none;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .langbar button svg{width:100%;height:100%;display:block}
+  .langbar button[aria-pressed="true"]{border-color:var(--gold)}
+  @media (max-width:480px){.langbar{top:8px;right:8px}.langbar button{width:26px;height:26px}}
+</style>
+</head>
+<body>
+
+<div class="langbar" role="group" aria-label="Selecionar idioma / Select language">
+  <button type="button" data-lang="pt" aria-pressed="true" aria-label="Português">
+    <svg viewBox="0 0 3 2"><rect width="3" height="2" fill="#DA291C"/><rect width="1.2" height="2" fill="#046A38"/><circle cx="1.2" cy="1" r="0.35" fill="#FFCC00" stroke="#046A38" stroke-width="0.04"/></svg>
+  </button>
+  <button type="button" data-lang="es" aria-pressed="false" aria-label="Español">
+    <svg viewBox="0 0 3 2"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg>
+  </button>
+  <button type="button" data-lang="en" aria-pressed="false" aria-label="English">
+    <svg viewBox="0 0 60 30"><rect width="60" height="30" fill="#00247d"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#cf142b" stroke-width="2"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#cf142b" stroke-width="6"/></svg>
+  </button>
+  <button type="button" data-lang="fr" aria-pressed="false" aria-label="Français">
+    <svg viewBox="0 0 3 2"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+  </button>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <div class="mark">Sabores com História</div>
+    <div class="sub" data-i18n="k1">Casa de Chá · Pastelaria Artesanal</div>
+    <div class="tag" data-i18n="k2">Tudo feito na hora · Quinta do Conde, Sesimbra</div>
+    <div class="rule"></div>
+  </header>
+
+  <!-- ============ COMIDA ============ -->
+  <div class="cols">
+    <div>
+      <div class="sec">
+        <h2 data-i18n="k3">Torradas</h2>
+        <div class="item"><span class="nm" data-i18n="k4">Tradicional</span><span class="dots"></span><span class="pr">2,10 €</span></div><div class="item"><span class="nm" data-i18n="k5">Azeite</span><span class="dots"></span><span class="pr">1,70 €</span></div><div class="item"><span class="nm" data-i18n="k6">Manteiga de Alho</span><span class="dots"></span><span class="pr">2,50 €</span></div><div class="item"><span class="nm" data-i18n="k7">Manteiga de Abacate e Ovo</span><span class="dots"></span><span class="pr">7,50 €</span></div><div class="item"><span class="nm" data-i18n="k8">Queijo Brie, Nozes e Mel</span><span class="dots"></span><span class="pr">5,50 €</span></div><div class="item"><span class="nm" data-i18n="k9">Manteiga de Amendoim, Banana e Sementes de Chia</span><span class="dots"></span><span class="pr">6,90 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k10">Tostas</h2>
+        <div class="item"><span class="nm" data-i18n="k11">Mista</span><span class="dots"></span><span class="pr">5,90 €</span></div><div class="item"><span class="nm" data-i18n="k12">Presunto</span><span class="dots"></span><span class="pr">6,90 €</span><span class="ing" data-i18n="k13">Queijo brie · presunto · rúcula</span></div><div class="item"><span class="nm" data-i18n="k14">Cheddar</span><span class="dots"></span><span class="pr">7,50 €</span><span class="ing" data-i18n="k15">Queijo cheddar · bacon · omelete · molho barbecue</span></div><div class="item"><span class="nm" data-i18n="k16">Alheira</span><span class="dots"></span><span class="pr">8,60 €</span><span class="ing" data-i18n="k17">Queijo de cabra · alheira · rúcula</span></div><div class="item"><span class="nm" data-i18n="k18">Frango</span><span class="dots"></span><span class="pr">6,90 €</span><span class="ing" data-i18n="k19">Queijo gouda · maionese · frango · cogumelos</span></div><div class="item"><span class="nm" data-i18n="k20">Delícias do Mar</span><span class="dots"></span><span class="pr">6,90 €</span><span class="ing" data-i18n="k21">Queijo gouda · delícias do mar · molho cocktail</span></div><div class="item"><span class="nm" data-i18n="k22">Atum</span><span class="dots"></span><span class="pr">6,90 €</span><span class="ing" data-i18n="k23">Queijo gouda · maionese · atum · ovo cozido · azeitonas</span></div><div class="item"><span class="nm" data-i18n="k24">Tosta d'Horta</span> <span class="vegan" data-i18n="k25">VEGAN</span><span class="dots"></span><span class="pr">7,50 €</span><span class="ing" data-i18n="k26">Alface · tomate · abacate · azeite</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k27">Crepes Doces &amp; Panquecas</h2>
+        <div class="item"><span class="nm" data-i18n="k28">Crepe Simples</span><span class="dots"></span><span class="pr">4,00 €</span><span class="ing" data-i18n="k29">Topping +1,50 €</span></div><div class="item"><span class="nm" data-i18n="k30">Panquecas de Aveia</span><span class="dots"></span><span class="pr">8,00 €</span></div><div class="item"><span class="nm" data-i18n="k31">Panquecas Americanas</span><span class="dots"></span><span class="pr">6,00 €</span></div><div class="item"><span class="nm" data-i18n="k32">Panquecas Red Velvet</span><span class="dots"></span><span class="pr">10,00 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k33">Crepes Salgados</h2>
+        <div class="sec" style="margin-top:2px"><div class="desc" data-i18n="k34">Guarnição: batata frita (doce ou tradicional) e salada mista</div></div>
+        <div class="item"><span class="nm" data-i18n="k35">Crepe de Frango</span><span class="dots"></span><span class="pr">7,50 €</span><span class="ing" data-i18n="k36">Frango · cogumelos · queijo de cabra</span></div><div class="item"><span class="nm" data-i18n="k37">Crepe de Presunto</span><span class="dots"></span><span class="pr">6,50 €</span><span class="ing" data-i18n="k38">Presunto · queijo brie</span></div><div class="item"><span class="nm" data-i18n="k39">Crepe de Atum</span><span class="dots"></span><span class="pr">6,50 €</span><span class="ing" data-i18n="k40">Atum · cebola · queijo mozzarella</span></div><div class="item"><span class="nm" data-i18n="k41">Crepe de Salmão Fumado</span><span class="dots"></span><span class="pr">9,50 €</span><span class="ing" data-i18n="k42">Salmão fumado · queijo feta</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k43">Ovos</h2>
+        <div class="item"><span class="nm" data-i18n="k44">Omelete</span><span class="dots"></span><span class="pr">7,50 €</span></div><div class="item"><span class="nm" data-i18n="k45">Ovos Mexidos</span><span class="dots"></span><span class="pr">3,50 €</span></div><div class="item"><span class="nm" data-i18n="k46">Ovos Mexidos c/ Bacon</span><span class="dots"></span><span class="pr">4,50 €</span></div><div class="item"><span class="nm" data-i18n="k47">Ovos Mexidos c/ Alheira</span><span class="dots"></span><span class="pr">5,50 €</span></div><div class="item"><span class="nm" data-i18n="k48">Ovos Rotos</span><span class="dots"></span><span class="pr">7,00 €</span></div><div class="item"><span class="nm" data-i18n="k49">Ovos Benedict</span><span class="dots"></span><span class="pr">10,50 €</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec">
+        <h2 data-i18n="k50">Saladas</h2>
+        <div class="item"><span class="nm" data-i18n="k51">Frango</span><span class="dots"></span><span class="pr">8,80 €</span><span class="ing" data-i18n="k52">Massa integral · frango · alface · tomate cherry · cogumelos · nozes · abacaxi</span></div><div class="item"><span class="nm" data-i18n="k53">Atum</span><span class="dots"></span><span class="pr">8,80 €</span><span class="ing" data-i18n="k54">Massa integral · atum · salada · tomate cherry · azeitonas · ovo</span></div><div class="item"><span class="nm" data-i18n="k55">Salmão Fumado</span><span class="dots"></span><span class="pr">9,90 €</span><span class="ing" data-i18n="k56">Massa integral · salmão fumado · alface · tomate cherry · frutos secos</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k57">Hambúrguer</h2>
+        <div class="sec" style="margin-top:2px"><div class="desc" data-i18n="k58">Guarnição: batata frita (doce ou tradicional)</div></div>
+        <div class="item"><span class="nm" data-i18n="k59">Clássico</span><span class="dots"></span><span class="pr">6,00 €</span><span class="ing" data-i18n="k60">Queijo gouda · rúcula</span></div><div class="item"><span class="nm" data-i18n="k61">Rústico</span><span class="dots"></span><span class="pr">7,50 €</span><span class="ing" data-i18n="k62">Queijo gouda · rúcula · cebola caramelizada · pepino</span></div><div class="item"><span class="nm" data-i18n="k63">Americano</span><span class="dots"></span><span class="pr">9,50 €</span><span class="ing" data-i18n="k64">Queijo cheddar · alface · tomate · bacon · ovo estrelado · cebola caramelizada</span></div><div class="item"><span class="nm" data-i18n="k65">Português</span><span class="dots"></span><span class="pr">8,50 €</span><span class="ing" data-i18n="k66">Queijo de cabra · rúcula · presunto · mel · nozes</span></div><div class="item"><span class="nm" data-i18n="k67">Batata c/ Cheddar e Bacon</span><span class="dots"></span><span class="pr">5,50 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k68">Brunch</h2>
+        <div class="brunch">
+          <div class="head"><span class="t" data-i18n="k69">Português</span><span class="p">25,00 €</span></div>
+          <div class="body" data-i18n="k70">Pão diverso · queijo fresco, queijo seco, queijo gouda, fiambre, presunto · chá ou café com leite · pastel de nata e miniaturas secas · ovos mexidos com alheira, bacon, feijão salteado com tomate · salgados, compota, mel e manteiga</div>
+        </div>
+        <div class="brunch">
+          <div class="head"><span class="t" data-i18n="k71">Saudável</span><span class="p">35,00 €</span></div>
+          <div class="body" data-i18n="k72">Torrada com manteiga de abacate e ovo · sumo natural · fruta diversa · taça de granola com iogurte natural · mel · panquecas de aveia</div>
+        </div>
+        <div class="brunch" style="background:var(--cream2)">
+          <div class="head"><span class="t" style="font-size:15px" data-i18n="k73">Extra · Taça de Granola</span><span class="p">6,50 €</span></div>
+        </div>
+        <span class="reserva" data-i18n="k74">BRUNCH SÓ POR RESERVA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule" style="margin:46px auto 0"></div>
+
+  <!-- ============ BEBIDAS ============ -->
+  <div class="cols">
+    <div>
+      <div class="sec">
+        <h2 data-i18n="k75">Sumos Naturais</h2>
+        <div class="desc" data-i18n="k76">Trabalhamos com frutas e legumes frescos e da época</div>
+        <div class="item"><span class="nm" data-i18n="k77">Single · 1 fruta</span><span class="dots"></span><span class="pr">2,80 €</span></div><div class="item"><span class="nm" data-i18n="k78">Mix · 2 frutas e/ou vegetais</span><span class="dots"></span><span class="pr">3,80 €</span></div><div class="item"><span class="nm" data-i18n="k79">Super Mix · 3 frutas e/ou vegetais</span><span class="dots"></span><span class="pr">4,80 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k80">Batidos</h2>
+        <div class="desc" data-i18n="k81">Trabalhamos com frutas e legumes frescos e da época</div>
+        <div class="item"><span class="nm" data-i18n="k82">Single · 1 fruta</span><span class="dots"></span><span class="pr">3,80 €</span></div><div class="item"><span class="nm" data-i18n="k83">Mix · 2 frutas e/ou vegetais</span><span class="dots"></span><span class="pr">4,80 €</span></div><div class="item"><span class="nm" data-i18n="k84">Super Mix · 3 frutas e/ou vegetais</span><span class="dots"></span><span class="pr">5,80 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k85">Cafés Especiais</h2>
+        <div class="item"><span class="nm" data-i18n="k86">Cappuccino</span><span class="dots"></span><span class="pr">2,50 €</span><span class="ing" data-i18n="k87">Café · espuma de leite</span></div><div class="item"><span class="nm" data-i18n="k88">Shakeratto</span><span class="dots"></span><span class="pr">2,50 €</span><span class="ing" data-i18n="k89">Café · gelo</span></div><div class="item"><span class="nm" data-i18n="k90">Real</span><span class="dots"></span><span class="pr">2,00 €</span><span class="ing" data-i18n="k91">Café · mel</span></div><div class="item"><span class="nm" data-i18n="k92">Mocha</span><span class="dots"></span><span class="pr">4,00 €</span><span class="ing" data-i18n="k93">Café · chocolate quente · chantilly</span></div><div class="item"><span class="nm" data-i18n="k94">Affogato</span><span class="dots"></span><span class="pr">3,00 €</span><span class="ing" data-i18n="k95">Café · bola de gelado de baunilha</span></div><div class="item"><span class="nm" data-i18n="k96">Panna</span><span class="dots"></span><span class="pr">3,50 €</span><span class="ing" data-i18n="k97">Café · chantilly · canela em pó</span></div><div class="item"><span class="nm" data-i18n="k98">Bombom</span><span class="dots"></span><span class="pr">3,50 €</span><span class="ing" data-i18n="k99">Café · chantilly · leite condensado</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k100">Quentes s/ Café</h2>
+        <div class="item"><span class="nm" data-i18n="k101">Chocolate Quente</span><span class="dots"></span><span class="pr">3,00 €</span><span class="ing" data-i18n="k102">Clássico · caramelo · negro · avelã · branco</span></div><div class="item"><span class="nm" data-i18n="k103">Leite Dourado</span><span class="dots"></span><span class="pr">4,00 €</span><span class="ing" data-i18n="k104">Bebida vegetal · pimenta · cúrcuma em pó</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec">
+        <h2 data-i18n="k105">Refrigerantes / Néctares</h2>
+        <div class="item"><span class="nm" data-i18n="k106">Coca-Cola</span><span class="dots"></span><span class="pr">1,90 €</span></div><div class="item"><span class="nm" data-i18n="k107">Sumol</span><span class="dots"></span><span class="pr">1,90 €</span></div><div class="item"><span class="nm" data-i18n="k108">Ice Tea</span><span class="dots"></span><span class="pr">1,90 €</span></div><div class="item"><span class="nm" data-i18n="k109">Compal</span><span class="dots"></span><span class="pr">1,40 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k110">Outras</h2>
+        <div class="item"><span class="nm" data-i18n="k111">Média Sagres</span><span class="dots"></span><span class="pr">1,30 €</span></div><div class="item"><span class="nm" data-i18n="k112">Cidra</span><span class="dots"></span><span class="pr">2,10 €</span></div><div class="item"><span class="nm" data-i18n="k113">Moscatel</span><span class="dots"></span><span class="pr">2,00 €</span></div><div class="item"><span class="nm" data-i18n="k114">Porto</span><span class="dots"></span><span class="pr">2,00 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k115">Águas</h2>
+        <div class="item"><span class="nm" data-i18n="k116">Natural 0,5 l</span><span class="dots"></span><span class="pr">1,20 €</span></div><div class="item"><span class="nm" data-i18n="k117">Pedras</span><span class="dots"></span><span class="pr">1,40 €</span></div><div class="item"><span class="nm" data-i18n="k118">Gaseificada</span><span class="dots"></span><span class="pr">1,50 €</span></div>
+      </div>
+
+      <div class="sec">
+        <h2 data-i18n="k119">Chás</h2>
+        <div class="chips">
+          <span data-i18n="k120">Verde</span><span data-i18n="k121">Preto</span><span data-i18n="k122">Branco</span><span data-i18n="k123">Camomila</span><span data-i18n="k124">Cidreira</span><span data-i18n="k125">Hibisco</span><span data-i18n="k126">Mate</span><span data-i18n="k127">Hortelã</span><span data-i18n="k128">Limão</span><span data-i18n="k129">Erva-doce</span><span data-i18n="k130">Alecrim</span><span data-i18n="k131">Canela</span>
+        </div>
+        <div class="note" data-i18n-html="k132">
+          Encontra uma variedade ainda maior de sabores e aromas no nosso expositor. <b>Estamos à disposição para ajudar a escolher o chá perfeito para cada ocasião.</b><br><br>Infusões para apreciar com calma, parte da nossa tradição de casa de chá.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:34px" data-i18n-html="k133">
+    <b>Alergénios:</b> se é alérgico ou intolerante a algum alimento e tem dúvidas sobre o que foi usado na preparação, peça informações a um dos nossos colaboradores.
+  </div>
+
+  <footer>
+    <span data-i18n="k134">Sabores com História · Casa de chá e pastelaria · Quinta do Conde, Sesimbra</span><br>
+    <span data-i18n="k135">Reservas e contacto:</span> <a href="https://wa.me/351928110255">WhatsApp 928 110 255</a> ·
+    <a href="https://maps.app.goo.gl/uqTj7Dska6PAgsra8" data-i18n="k136">Como chegar</a>
+    <div class="upd" data-i18n="k137">Menu atualizado em junho de 2026 · preços sujeitos a alteração</div>
+  </footer>
+
+</div>
+
+<script>
+const TX = {"k1": {"pt": "Casa de Chá · Pastelaria Artesanal", "es": "Casa de Té · Pastelería Artesanal", "en": "Tea House · Artisan Bakery", "fr": "Maison de Thé · Pâtisserie Artisanale"}, "k2": {"pt": "Tudo feito na hora · Quinta do Conde, Sesimbra", "es": "Todo preparado al momento · Quinta do Conde, Sesimbra", "en": "Everything made fresh to order · Quinta do Conde, Sesimbra", "fr": "Tout préparé à la minute · Quinta do Conde, Sesimbra"}, "k3": {"pt": "Torradas", "es": "Tostadas", "en": "Toasts", "fr": "Tartines"}, "k4": {"pt": "Tradicional", "es": "Tradicional", "en": "Traditional", "fr": "Traditionnelle"}, "k5": {"pt": "Azeite", "es": "Aceite de oliva", "en": "Olive Oil", "fr": "Huile d'olive"}, "k6": {"pt": "Manteiga de Alho", "es": "Mantequilla de ajo", "en": "Garlic Butter", "fr": "Beurre à l'ail"}, "k7": {"pt": "Manteiga de Abacate e Ovo", "es": "Mantequilla de aguacate y huevo", "en": "Avocado Butter & Egg", "fr": "Beurre d'avocat et œuf"}, "k8": {"pt": "Queijo Brie, Nozes e Mel", "es": "Queso brie, nueces y miel", "en": "Brie Cheese, Walnuts & Honey", "fr": "Brie, noix et miel"}, "k9": {"pt": "Manteiga de Amendoim, Banana e Sementes de Chia", "es": "Mantequilla de cacahuete, plátano y semillas de chía", "en": "Peanut Butter, Banana & Chia Seeds", "fr": "Beurre de cacahuète, banane et graines de chia"}, "k10": {"pt": "Tostas", "es": "Tostadas Rellenas", "en": "Sandwiches", "fr": "Croque-Sandwichs"}, "k11": {"pt": "Mista", "es": "Mixta", "en": "Ham & Cheese", "fr": "Mixte (jambon-fromage)"}, "k12": {"pt": "Presunto", "es": "Jamón", "en": "Cured Ham", "fr": "Jambon cru"}, "k13": {"pt": "Queijo brie · presunto · rúcula", "es": "Queso brie · jamón · rúcula", "en": "Brie cheese · cured ham · rocket", "fr": "Brie · jambon cru · roquette"}, "k14": {"pt": "Cheddar", "es": "Cheddar", "en": "Cheddar", "fr": "Cheddar"}, "k15": {"pt": "Queijo cheddar · bacon · omelete · molho barbecue", "es": "Queso cheddar · bacon · tortilla · salsa barbacoa", "en": "Cheddar cheese · bacon · omelette · BBQ sauce", "fr": "Cheddar · bacon · omelette · sauce barbecue"}, "k16": {"pt": "Alheira", "es": "Alheira", "en": "Alheira Sausage", "fr": "Saucisse Alheira"}, "k17": {"pt": "Queijo de cabra · alheira · rúcula", "es": "Queso de cabra · alheira · rúcula", "en": "Goat cheese · alheira sausage · rocket", "fr": "Fromage de chèvre · saucisse alheira · roquette"}, "k18": {"pt": "Frango", "es": "Pollo", "en": "Chicken", "fr": "Poulet"}, "k19": {"pt": "Queijo gouda · maionese · frango · cogumelos", "es": "Queso gouda · mayonesa · pollo · champiñones", "en": "Gouda cheese · mayonnaise · chicken · mushrooms", "fr": "Gouda · mayonnaise · poulet · champignons"}, "k20": {"pt": "Delícias do Mar", "es": "Delicias del Mar", "en": "Seafood Sticks", "fr": "Surimi"}, "k21": {"pt": "Queijo gouda · delícias do mar · molho cocktail", "es": "Queso gouda · delicias del mar · salsa cóctel", "en": "Gouda cheese · seafood sticks · cocktail sauce", "fr": "Gouda · surimi · sauce cocktail"}, "k22": {"pt": "Atum", "es": "Atún", "en": "Tuna", "fr": "Thon"}, "k23": {"pt": "Queijo gouda · maionese · atum · ovo cozido · azeitonas", "es": "Queso gouda · mayonesa · atún · huevo cocido · aceitunas", "en": "Gouda cheese · mayonnaise · tuna · boiled egg · olives", "fr": "Gouda · mayonnaise · thon · œuf dur · olives"}, "k24": {"pt": "Tosta d'Horta", "es": "Tostada de Huerta", "en": "Garden Toast", "fr": "Tartine du Potager"}, "k25": {"pt": "VEGAN", "es": "VEGANO", "en": "VEGAN", "fr": "VÉGÉTALIEN"}, "k26": {"pt": "Alface · tomate · abacate · azeite", "es": "Lechuga · tomate · aguacate · aceite de oliva", "en": "Lettuce · tomato · avocado · olive oil", "fr": "Salade · tomate · avocat · huile d'olive"}, "k27": {"pt": "Crepes Doces &amp; Panquecas", "es": "Crepes Dulces y Tortitas", "en": "Sweet Crêpes &amp; Pancakes", "fr": "Crêpes Sucrées et Pancakes"}, "k28": {"pt": "Crepe Simples", "es": "Crepe Sencillo", "en": "Simple Crêpe", "fr": "Crêpe Nature"}, "k29": {"pt": "Topping +1,50 €", "es": "Topping +1,50 €", "en": "Topping +€1.50", "fr": "Garniture +1,50 €"}, "k30": {"pt": "Panquecas de Aveia", "es": "Tortitas de Avena", "en": "Oat Pancakes", "fr": "Pancakes à l'avoine"}, "k31": {"pt": "Panquecas Americanas", "es": "Tortitas Americanas", "en": "American Pancakes", "fr": "Pancakes Américains"}, "k32": {"pt": "Panquecas Red Velvet", "es": "Tortitas Red Velvet", "en": "Red Velvet Pancakes", "fr": "Pancakes Red Velvet"}, "k33": {"pt": "Crepes Salgados", "es": "Crepes Salados", "en": "Savoury Crêpes", "fr": "Crêpes Salées"}, "k34": {"pt": "Guarnição: batata frita (doce ou tradicional) e salada mista", "es": "Guarnición: patatas fritas (dulces o tradicionales) y ensalada mixta", "en": "Side: fries (sweet potato or regular) and mixed salad", "fr": "Accompagnement : frites (patate douce ou classiques) et salade mixte"}, "k35": {"pt": "Crepe de Frango", "es": "Crepe de Pollo", "en": "Chicken Crêpe", "fr": "Crêpe au Poulet"}, "k36": {"pt": "Frango · cogumelos · queijo de cabra", "es": "Pollo · champiñones · queso de cabra", "en": "Chicken · mushrooms · goat cheese", "fr": "Poulet · champignons · fromage de chèvre"}, "k37": {"pt": "Crepe de Presunto", "es": "Crepe de Jamón", "en": "Ham Crêpe", "fr": "Crêpe au Jambon"}, "k38": {"pt": "Presunto · queijo brie", "es": "Jamón · queso brie", "en": "Cured ham · brie cheese", "fr": "Jambon cru · brie"}, "k39": {"pt": "Crepe de Atum", "es": "Crepe de Atún", "en": "Tuna Crêpe", "fr": "Crêpe au Thon"}, "k40": {"pt": "Atum · cebola · queijo mozzarella", "es": "Atún · cebolla · queso mozzarella", "en": "Tuna · onion · mozzarella cheese", "fr": "Thon · oignon · mozzarella"}, "k41": {"pt": "Crepe de Salmão Fumado", "es": "Crepe de Salmón Ahumado", "en": "Smoked Salmon Crêpe", "fr": "Crêpe au Saumon Fumé"}, "k42": {"pt": "Salmão fumado · queijo feta", "es": "Salmón ahumado · queso feta", "en": "Smoked salmon · feta cheese", "fr": "Saumon fumé · feta"}, "k43": {"pt": "Ovos", "es": "Huevos", "en": "Eggs", "fr": "Œufs"}, "k44": {"pt": "Omelete", "es": "Tortilla", "en": "Omelette", "fr": "Omelette"}, "k45": {"pt": "Ovos Mexidos", "es": "Huevos Revueltos", "en": "Scrambled Eggs", "fr": "Œufs Brouillés"}, "k46": {"pt": "Ovos Mexidos c/ Bacon", "es": "Huevos Revueltos con Bacon", "en": "Scrambled Eggs w/ Bacon", "fr": "Œufs Brouillés au Bacon"}, "k47": {"pt": "Ovos Mexidos c/ Alheira", "es": "Huevos Revueltos con Alheira", "en": "Scrambled Eggs w/ Alheira Sausage", "fr": "Œufs Brouillés à l'Alheira"}, "k48": {"pt": "Ovos Rotos", "es": "Huevos Rotos", "en": "Ovos Rotos (Broken Eggs)", "fr": "Œufs Rotos"}, "k49": {"pt": "Ovos Benedict", "es": "Huevos Benedict", "en": "Eggs Benedict", "fr": "Œufs Bénédicte"}, "k50": {"pt": "Saladas", "es": "Ensaladas", "en": "Salads", "fr": "Salades"}, "k51": {"pt": "Frango", "es": "Pollo", "en": "Chicken", "fr": "Poulet"}, "k52": {"pt": "Massa integral · frango · alface · tomate cherry · cogumelos · nozes · abacaxi", "es": "Pasta integral · pollo · lechuga · tomate cherry · champiñones · nueces · piña", "en": "Wholewheat pasta · chicken · lettuce · cherry tomato · mushrooms · walnuts · pineapple", "fr": "Pâtes complètes · poulet · salade · tomates cerises · champignons · noix · ananas"}, "k53": {"pt": "Atum", "es": "Atún", "en": "Tuna", "fr": "Thon"}, "k54": {"pt": "Massa integral · atum · salada · tomate cherry · azeitonas · ovo", "es": "Pasta integral · atún · ensalada · tomate cherry · aceitunas · huevo", "en": "Wholewheat pasta · tuna · salad · cherry tomato · olives · egg", "fr": "Pâtes complètes · thon · salade · tomates cerises · olives · œuf"}, "k55": {"pt": "Salmão Fumado", "es": "Salmón Ahumado", "en": "Smoked Salmon", "fr": "Saumon Fumé"}, "k56": {"pt": "Massa integral · salmão fumado · alface · tomate cherry · frutos secos", "es": "Pasta integral · salmón ahumado · lechuga · tomate cherry · frutos secos", "en": "Wholewheat pasta · smoked salmon · lettuce · cherry tomato · nuts", "fr": "Pâtes complètes · saumon fumé · salade · tomates cerises · fruits secs"}, "k57": {"pt": "Hambúrguer", "es": "Hamburguesas", "en": "Burgers", "fr": "Hamburgers"}, "k58": {"pt": "Guarnição: batata frita (doce ou tradicional)", "es": "Guarnición: patatas fritas (dulces o tradicionales)", "en": "Side: fries (sweet potato or regular)", "fr": "Accompagnement : frites (patate douce ou classiques)"}, "k59": {"pt": "Clássico", "es": "Clásica", "en": "Classic", "fr": "Classique"}, "k60": {"pt": "Queijo gouda · rúcula", "es": "Queso gouda · rúcula", "en": "Gouda cheese · rocket", "fr": "Gouda · roquette"}, "k61": {"pt": "Rústico", "es": "Rústica", "en": "Rustic", "fr": "Rustique"}, "k62": {"pt": "Queijo gouda · rúcula · cebola caramelizada · pepino", "es": "Queso gouda · rúcula · cebolla caramelizada · pepino", "en": "Gouda cheese · rocket · caramelised onion · cucumber", "fr": "Gouda · roquette · oignon caramélisé · concombre"}, "k63": {"pt": "Americano", "es": "Americana", "en": "American", "fr": "Américain"}, "k64": {"pt": "Queijo cheddar · alface · tomate · bacon · ovo estrelado · cebola caramelizada", "es": "Queso cheddar · lechuga · tomate · bacon · huevo frito · cebolla caramelizada", "en": "Cheddar cheese · lettuce · tomato · bacon · fried egg · caramelised onion", "fr": "Cheddar · salade · tomate · bacon · œuf au plat · oignon caramélisé"}, "k65": {"pt": "Português", "es": "Portuguesa", "en": "Portuguese", "fr": "Portugais"}, "k66": {"pt": "Queijo de cabra · rúcula · presunto · mel · nozes", "es": "Queso de cabra · rúcula · jamón · miel · nueces", "en": "Goat cheese · rocket · cured ham · honey · walnuts", "fr": "Fromage de chèvre · roquette · jambon cru · miel · noix"}, "k67": {"pt": "Batata c/ Cheddar e Bacon", "es": "Patatas con Cheddar y Bacon", "en": "Fries w/ Cheddar & Bacon", "fr": "Frites au Cheddar et Bacon"}, "k68": {"pt": "Brunch", "es": "Brunch", "en": "Brunch", "fr": "Brunch"}, "k69": {"pt": "Português", "es": "Portugués", "en": "Portuguese", "fr": "Portugais"}, "k70": {"pt": "Pão diverso · queijo fresco, queijo seco, queijo gouda, fiambre, presunto · chá ou café com leite · pastel de nata e miniaturas secas · ovos mexidos com alheira, bacon, feijão salteado com tomate · salgados, compota, mel e manteiga", "es": "Variedad de panes · queso fresco, queso curado, queso gouda, jamón cocido, jamón serrano · té o café con leche · pastel de nata y pastelitos secos · huevos revueltos con alheira, bacon, judías salteadas con tomate · salados, mermelada, miel y mantequilla", "en": "Assorted breads · fresh cheese, cured cheese, gouda cheese, cooked ham, cured ham · tea or coffee with milk · pastel de nata and small pastries · scrambled eggs with alheira sausage, bacon, sautéed beans with tomato · savoury pastries, jam, honey and butter", "fr": "Pains variés · fromage frais, fromage affiné, gouda, jambon blanc, jambon cru · thé ou café au lait · pastel de nata et petites pâtisseries sèches · œufs brouillés à l'alheira, bacon, haricots sautés à la tomate · feuilletés salés, confiture, miel et beurre"}, "k71": {"pt": "Saudável", "es": "Saludable", "en": "Healthy", "fr": "Sain"}, "k72": {"pt": "Torrada com manteiga de abacate e ovo · sumo natural · fruta diversa · taça de granola com iogurte natural · mel · panquecas de aveia", "es": "Tostada con mantequilla de aguacate y huevo · zumo natural · fruta variada · bol de granola con yogur natural · miel · tortitas de avena", "en": "Toast with avocado butter and egg · fresh juice · assorted fruit · granola bowl with natural yoghurt · honey · oat pancakes", "fr": "Tartine au beurre d'avocat et œuf · jus frais · fruits variés · bol de granola au yaourt nature · miel · pancakes à l'avoine"}, "k73": {"pt": "Extra · Taça de Granola", "es": "Extra · Bol de Granola", "en": "Extra · Granola Bowl", "fr": "Extra · Bol de Granola"}, "k74": {"pt": "BRUNCH SÓ POR RESERVA", "es": "BRUNCH SOLO CON RESERVA", "en": "BRUNCH BY RESERVATION ONLY", "fr": "BRUNCH UNIQUEMENT SUR RÉSERVATION"}, "k75": {"pt": "Sumos Naturais", "es": "Zumos Naturales", "en": "Fresh Juices", "fr": "Jus Frais"}, "k76": {"pt": "Trabalhamos com frutas e legumes frescos e da época", "es": "Trabajamos con frutas y verduras frescas y de temporada", "en": "We work with fresh, seasonal fruit and vegetables", "fr": "Nous travaillons avec des fruits et légumes frais et de saison"}, "k77": {"pt": "Single · 1 fruta", "es": "Single · 1 fruta", "en": "Single · 1 fruit", "fr": "Single · 1 fruit"}, "k78": {"pt": "Mix · 2 frutas e/ou vegetais", "es": "Mix · 2 frutas y/o verduras", "en": "Mix · 2 fruits and/or vegetables", "fr": "Mix · 2 fruits et/ou légumes"}, "k79": {"pt": "Super Mix · 3 frutas e/ou vegetais", "es": "Super Mix · 3 frutas y/o verduras", "en": "Super Mix · 3 fruits and/or vegetables", "fr": "Super Mix · 3 fruits et/ou légumes"}, "k80": {"pt": "Batidos", "es": "Batidos", "en": "Smoothies", "fr": "Smoothies"}, "k81": {"pt": "Trabalhamos com frutas e legumes frescos e da época", "es": "Trabajamos con frutas y verduras frescas y de temporada", "en": "We work with fresh, seasonal fruit and vegetables", "fr": "Nous travaillons avec des fruits et légumes frais et de saison"}, "k82": {"pt": "Single · 1 fruta", "es": "Single · 1 fruta", "en": "Single · 1 fruit", "fr": "Single · 1 fruit"}, "k83": {"pt": "Mix · 2 frutas e/ou vegetais", "es": "Mix · 2 frutas y/o verduras", "en": "Mix · 2 fruits and/or vegetables", "fr": "Mix · 2 fruits et/ou légumes"}, "k84": {"pt": "Super Mix · 3 frutas e/ou vegetais", "es": "Super Mix · 3 frutas y/o verduras", "en": "Super Mix · 3 fruits and/or vegetables", "fr": "Super Mix · 3 fruits et/ou légumes"}, "k85": {"pt": "Cafés Especiais", "es": "Cafés Especiales", "en": "Specialty Coffees", "fr": "Cafés Spéciaux"}, "k86": {"pt": "Cappuccino", "es": "Capuchino", "en": "Cappuccino", "fr": "Cappuccino"}, "k87": {"pt": "Café · espuma de leite", "es": "Café · espuma de leche", "en": "Coffee · milk foam", "fr": "Café · mousse de lait"}, "k88": {"pt": "Shakeratto", "es": "Shakeratto", "en": "Shakeratto", "fr": "Shakeratto"}, "k89": {"pt": "Café · gelo", "es": "Café · hielo", "en": "Coffee · ice", "fr": "Café · glace"}, "k90": {"pt": "Real", "es": "Real", "en": "Real", "fr": "Real"}, "k91": {"pt": "Café · mel", "es": "Café · miel", "en": "Coffee · honey", "fr": "Café · miel"}, "k92": {"pt": "Mocha", "es": "Mocha", "en": "Mocha", "fr": "Mocha"}, "k93": {"pt": "Café · chocolate quente · chantilly", "es": "Café · chocolate caliente · nata montada", "en": "Coffee · hot chocolate · whipped cream", "fr": "Café · chocolat chaud · chantilly"}, "k94": {"pt": "Affogato", "es": "Affogato", "en": "Affogato", "fr": "Affogato"}, "k95": {"pt": "Café · bola de gelado de baunilha", "es": "Café · bola de helado de vainilla", "en": "Coffee · scoop of vanilla ice cream", "fr": "Café · boule de glace vanille"}, "k96": {"pt": "Panna", "es": "Panna", "en": "Panna", "fr": "Panna"}, "k97": {"pt": "Café · chantilly · canela em pó", "es": "Café · nata montada · canela en polvo", "en": "Coffee · whipped cream · ground cinnamon", "fr": "Café · chantilly · cannelle en poudre"}, "k98": {"pt": "Bombom", "es": "Bombón", "en": "Bombom", "fr": "Bombom"}, "k99": {"pt": "Café · chantilly · leite condensado", "es": "Café · nata montada · leche condensada", "en": "Coffee · whipped cream · condensed milk", "fr": "Café · chantilly · lait concentré sucré"}, "k100": {"pt": "Quentes s/ Café", "es": "Calientes sin Café", "en": "Hot Drinks (No Coffee)", "fr": "Boissons Chaudes sans Café"}, "k101": {"pt": "Chocolate Quente", "es": "Chocolate Caliente", "en": "Hot Chocolate", "fr": "Chocolat Chaud"}, "k102": {"pt": "Clássico · caramelo · negro · avelã · branco", "es": "Clásico · caramelo · negro · avellana · blanco", "en": "Classic · caramel · dark · hazelnut · white", "fr": "Classique · caramel · noir · noisette · blanc"}, "k103": {"pt": "Leite Dourado", "es": "Leche Dorada", "en": "Golden Milk", "fr": "Lait Doré"}, "k104": {"pt": "Bebida vegetal · pimenta · cúrcuma em pó", "es": "Bebida vegetal · pimienta · cúrcuma en polvo", "en": "Plant-based milk · pepper · ground turmeric", "fr": "Boisson végétale · poivre · curcuma en poudre"}, "k105": {"pt": "Refrigerantes / Néctares", "es": "Refrescos / Néctares", "en": "Soft Drinks / Nectars", "fr": "Boissons Gazeuses / Nectars"}, "k106": {"pt": "Coca-Cola", "es": "Coca-Cola", "en": "Coca-Cola", "fr": "Coca-Cola"}, "k107": {"pt": "Sumol", "es": "Sumol", "en": "Sumol", "fr": "Sumol"}, "k108": {"pt": "Ice Tea", "es": "Ice Tea", "en": "Ice Tea", "fr": "Ice Tea"}, "k109": {"pt": "Compal", "es": "Compal", "en": "Compal", "fr": "Compal"}, "k110": {"pt": "Outras", "es": "Otras Bebidas", "en": "Other Drinks", "fr": "Autres Boissons"}, "k111": {"pt": "Média Sagres", "es": "Media Sagres", "en": "Sagres Draft (Medium)", "fr": "Sagres Pression (Moyenne)"}, "k112": {"pt": "Cidra", "es": "Sidra", "en": "Cider", "fr": "Cidre"}, "k113": {"pt": "Moscatel", "es": "Moscatel", "en": "Moscatel", "fr": "Muscat"}, "k114": {"pt": "Porto", "es": "Oporto", "en": "Port Wine", "fr": "Porto"}, "k115": {"pt": "Águas", "es": "Aguas", "en": "Water", "fr": "Eaux"}, "k116": {"pt": "Natural 0,5 l", "es": "Natural 0,5 l", "en": "Still 0.5 l", "fr": "Plate 0,5 l"}, "k117": {"pt": "Pedras", "es": "Pedras", "en": "Pedras (sparkling)", "fr": "Pedras (gazeuse)"}, "k118": {"pt": "Gaseificada", "es": "Con gas", "en": "Sparkling", "fr": "Gazeuse"}, "k119": {"pt": "Chás", "es": "Tés", "en": "Teas", "fr": "Thés"}, "k120": {"pt": "Verde", "es": "Verde", "en": "Green", "fr": "Vert"}, "k121": {"pt": "Preto", "es": "Negro", "en": "Black", "fr": "Noir"}, "k122": {"pt": "Branco", "es": "Blanco", "en": "White", "fr": "Blanc"}, "k123": {"pt": "Camomila", "es": "Manzanilla", "en": "Chamomile", "fr": "Camomille"}, "k124": {"pt": "Cidreira", "es": "Melisa", "en": "Lemon Balm", "fr": "Mélisse"}, "k125": {"pt": "Hibisco", "es": "Hibisco", "en": "Hibiscus", "fr": "Hibiscus"}, "k126": {"pt": "Mate", "es": "Mate", "en": "Mate", "fr": "Maté"}, "k127": {"pt": "Hortelã", "es": "Menta", "en": "Mint", "fr": "Menthe"}, "k128": {"pt": "Limão", "es": "Limón", "en": "Lemon", "fr": "Citron"}, "k129": {"pt": "Erva-doce", "es": "Anís", "en": "Fennel", "fr": "Anis"}, "k130": {"pt": "Alecrim", "es": "Romero", "en": "Rosemary", "fr": "Romarin"}, "k131": {"pt": "Canela", "es": "Canela", "en": "Cinnamon", "fr": "Cannelle"}, "k132": {"pt": "Encontra uma variedade ainda maior de sabores e aromas no nosso expositor. <b>Estamos à disposição para ajudar a escolher o chá perfeito para cada ocasião.</b><br><br>Infusões para apreciar com calma, parte da nossa tradição de casa de chá.", "es": "Encuentra una variedad aún mayor de sabores y aromas en nuestro expositor. <b>Estamos a tu disposición para ayudarte a elegir el té perfecto para cada ocasión.</b><br><br>Infusiones para disfrutar con calma, parte de nuestra tradición como casa de té.", "en": "You'll find an even wider variety of flavours and aromas at our display. <b>We're happy to help you choose the perfect tea for every occasion.</b><br><br>Infusions to enjoy at a slow pace, part of our tradition as a tea house.", "fr": "Vous trouverez une variété encore plus large de saveurs et d'arômes sur notre présentoir. <b>Nous sommes à votre disposition pour vous aider à choisir le thé parfait pour chaque occasion.</b><br><br>Des infusions à savourer calmement, dans la tradition de notre maison de thé."}, "k133": {"pt": "<b>Alergénios:</b> se é alérgico ou intolerante a algum alimento e tem dúvidas sobre o que foi usado na preparação, peça informações a um dos nossos colaboradores.", "es": "<b>Alérgenos:</b> si eres alérgico o intolerante a algún alimento y tienes dudas sobre lo que se ha usado en la preparación, pide información a uno de nuestros colaboradores.", "en": "<b>Allergens:</b> if you have an allergy or intolerance and have questions about what was used in preparation, please ask a member of our team.", "fr": "<b>Allergènes :</b> si vous êtes allergique ou intolérant à un aliment et avez des questions sur sa préparation, demandez des informations à l'un de nos collaborateurs."}, "k134": {"pt": "Sabores com História · Casa de chá e pastelaria · Quinta do Conde, Sesimbra", "es": "Sabores com História · Casa de té y pastelería · Quinta do Conde, Sesimbra", "en": "Sabores com História · Tea house and bakery · Quinta do Conde, Sesimbra", "fr": "Sabores com História · Maison de thé et pâtisserie · Quinta do Conde, Sesimbra"}, "k135": {"pt": "Reservas e contacto:", "es": "Reservas y contacto:", "en": "Reservations and contact:", "fr": "Réservations et contact :"}, "k136": {"pt": "Como chegar", "es": "Cómo llegar", "en": "Get directions", "fr": "Itinéraire"}, "k137": {"pt": "Menu atualizado em junho de 2026 · preços sujeitos a alteração", "es": "Menú actualizado en junio de 2026 · precios sujetos a cambios", "en": "Menu updated June 2026 · prices subject to change", "fr": "Menu mis à jour en juin 2026 · prix sujets à modification"}};
+
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const t = TX[key];
+    if(t) el.textContent = t[lang] || t.pt;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    const t = TX[key];
+    if(t) el.innerHTML = t[lang] || t.pt;
+  });
+  document.querySelectorAll('.langbar button').forEach(b => {
+    b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
+  });
+}
+
+document.querySelectorAll('.langbar button').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+const urlLang = new URLSearchParams(location.search).get('lang');
+const validLangs = ['pt','es','en','fr'];
+applyLang(validLangs.includes(urlLang) ? urlLang : 'pt');
+</script>
+
+</body>
+</html>
